@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "target": "es2019",
+    "declaration": true,
+    "outDir": "./dist",
+    "jsx": "react",
+    "lib": ["DOM"]
+  },
+  "include": ["src/**/*"]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "fetchguy",
+  "version": "0.0.1",
+  "description": "An open source testrunner wrapped around fetch",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "author": "Jacob Stovall",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^18.2.25",
+    "ink": "^4.4.1",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.2",
+    "typescript": "^5.2.2"
+  }
+}
