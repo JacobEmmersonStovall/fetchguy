@@ -92,10 +92,7 @@ const runTests = async (
             failTest(`Expected ${currentAssert.value} received ${result}`);
           }
         } else if (currentAssert.type === "HEADER") {
-          let result = currentAssert.propDrilldown.reduce(
-            (prev, curr) => prev[curr] || {},
-            headers
-          );
+          let result = headers.get(currentAssert.propDrilldown[0]);
           if (result === currentAssert.value) {
             passTest();
           } else {

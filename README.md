@@ -34,29 +34,57 @@ I got tired of using the competitors and wanted something simple that was barebo
 I'm going to write a better example with a public api that could be used for the example, but this is the example syntax:
 
 ```javascript
-import { TestRunner } from "../dist/index.js";
+const runTests = async () => {
+  const fetchguy = await import("fetchguy");
+  fetchguy.TestRunner([
+    {
+      title: "Test ping is returning expected values",
+      fetchOptions: {},
+      url: "http://localhost:8000/ping",
+      asserts: [
+        {
+          comparison: "EQUAL",
+          title: "status code is 200",
+          propDrilldown: ["status_code"],
+          type: "STATUS_CODE",
+          value: 201,
+        },
+        {
+          comparison: "EQUAL",
+          title: "body has string here",
+          propDrilldown: ["inner", "property", "insider"],
+          type: "BODY",
+          value: "her",
+        },
+      ],
+    },
+    {
+      title: "Passing ping test",
+      fetchOptions: {},
+      url: "http://localhost:8000/ping",
+      asserts: [
+        {
+          comparison: "EQUAL",
+          title: "status code is 200",
+          propDrilldown: ["status_code"],
+          type: "STATUS_CODE",
+          value: 200,
+        },
+        {
+          comparison: "EQUAL",
+          title: "body has string here",
+          propDrilldown: ["inner", "property", "insider"],
+          type: "BODY",
+          value: "here",
+        },
+      ],
+    },
+  ]);
+};
 
-TestRunner([
-  {
-    title: "Test ping is returning expected values",
-    fetchOptions: {},
-    url: "http://localhost:8000/ping",
-    asserts: [
-      {
-        comparison: "EQUAL",
-        title: "status code is 200",
-        propDrilldown: ["status_code"],
-        type: "STATUS_CODE",
-        value: 200,
-      },
-      {
-        comparison: "EQUAL",
-        title: "body has string here",
-        propDrilldown: ["inner", "property", "insider"],
-        type: "BODY",
-        value: "here",
-      },
-    ],
-  },
-]);
+runTests();
 ```
+
+#### And the result from the code example
+
+![Alt text](result.png)
